@@ -20,6 +20,10 @@ call plug#begin()
     " Color scheme
     Plug 'morhetz/gruvbox'
     Plug 'joshdick/onedark.vim'
+    Plug 'GlennLeo/cobalt2'
+
+    " Install rigel
+    Plug 'Rigellute/rigel'
 
     call plug#end()
 
@@ -59,11 +63,11 @@ else
 endif
 
 " Color scheme and themes
-colorscheme onedark
+colorscheme cobalt2
 set t_Co=256
 
 " Airline
-let g:airline_theme='onedark'
+let g:airline_theme='rigel'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
