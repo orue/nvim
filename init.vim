@@ -1,3 +1,11 @@
+" plugins
+let need_to_install_plugins = 0
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let need_to_install_plugins = 1
+endif
+
 call plug#begin()
     " Appearance
     Plug 'vim-airline/vim-airline'
