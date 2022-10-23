@@ -35,9 +35,22 @@ call plug#begin()
 
     call plug#end()
 
+" To Install Plugins
+if need_to_install_plugins == 1
+    echo "Installing plugins..."
+    silent! PlugInstall
+    echo "Done!"
+    q
+endif
+
+
 " Syntax
+filetype on
 filetype plugin indent on
 syntax on
+
+" always show the status bar
+set laststatus=2
 
 " Options
 set background=dark
@@ -53,10 +66,16 @@ set title
 set ttimeoutlen=0
 set wildmenu
 
-" Tabs size
+
+" editing
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set colorcolumn=120
 set expandtab
-set shiftwidth=2
-set tabstop=2
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " True color if available
 let term_program=$TERM_PROGRAM
@@ -73,6 +92,7 @@ endif
 " Color scheme and themes
 colorscheme cobalt2
 set t_Co=256
+highlight LineNr ctermfg=241
 
 " Airline
 let g:airline_theme='rigel'
