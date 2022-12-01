@@ -53,7 +53,6 @@ syntax on
 set laststatus=2
 
 " Options
-set background=dark
 set clipboard=unnamedplus
 set completeopt=noinsert,menuone,noselect
 set cursorline
