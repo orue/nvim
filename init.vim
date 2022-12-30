@@ -21,14 +21,10 @@ call plug#begin()
     " Completion / linters / formatters
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'plasticboy/vim-markdown'
+    Plug 'pangloss/vim-javascript'
 
     " Git
     Plug 'airblade/vim-gitgutter'
-
-    " Color scheme
-    Plug 'morhetz/gruvbox'
-    Plug 'joshdick/onedark.vim'
-    Plug 'GlennLeo/cobalt2'
 
     " Install rigel
     Plug 'Rigellute/rigel'
@@ -70,7 +66,6 @@ set wildmenu
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set colorcolumn=120
 set expandtab
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
@@ -89,56 +84,19 @@ else
 endif
 
 " Color scheme and themes
-" colorscheme cobalt2
-set bg=dark
-colorscheme gruvbox
+colorscheme rigel
 
 set t_Co=256
 highlight LineNr ctermfg=241
 
+" Once vim-javascript is installed you enable flow highlighting
+let g:javascript_plugin_flow = 1
+
+
 " Airline
-" let g:airline_theme='rigel'
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
+let g:rigel_airline = 1
+let g:airline_theme = 'rigel'
 
-" Plugin Settings
-
-  " Airline {
-    if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-    endif
-
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#buffer_idx_mode = 1
-    let g:airline#extensions#tabline#fnamemod = ':t'
-    let g:airline#extensions#tabline#left_sep = ''
-    let g:airline#extensions#tabline#left_alt_sep = ''
-    let g:airline#extensions#tabline#right_sep = ''
-    let g:airline#extensions#tabline#right_alt_sep = ''
-    let g:airline#extensions#tabline#formatter = 'default'
-
-    " unicode symbols
-    let g:airline_left_sep = '»'
-    let g:airline_left_sep = '▶'
-    let g:airline_right_sep = '«'
-    let g:airline_right_sep = '◀'
-    let g:airline_symbols.crypt = '🔒'
-    let g:airline_symbols.linenr = '␊'
-    let g:airline_symbols.linenr = '␤'
-    let g:airline_symbols.linenr = '¶'
-    let g:airline_symbols.maxlinenr = '☰'
-    let g:airline_symbols.maxlinenr = ''
-    let g:airline_symbols.branch = '⎇'
-    let g:airline_symbols.paste = 'ρ'
-    let g:airline_symbols.paste = 'Þ'
-    let g:airline_symbols.paste = '∥'
-    let g:airline_symbols.spell = 'Ꞩ'
-    let g:airline_symbols.notexists = '∄'
-    let g:airline_symbols.whitespace = 'Ξ'
-
-    " Theme ( github.com/vim-airline/vim-airline-themes
-    let g:airline_theme= 'gruvbox'
-  " }
 
 " Italics
 let &t_ZH="\e[3m"
